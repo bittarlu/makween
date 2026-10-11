@@ -179,21 +179,39 @@
     <p class="disclaimer">A MAKWEEN participa de programas de afiliados e pode receber uma comissão pelas compras feitas através dos nossos links, sem custo adicional para você. Preços e disponibilidade são atualizados diariamente e podem mudar sem aviso.</p>
   </footer>
 
-  <!-- Pixel: clique em oferta de produto (interesse real) -->
+  <!-- Pixel: ViewContent ao ver a aba da marca; InitiateCheckout no clique da oferta -->
   <script>
-    document.querySelectorAll('a.js-track').forEach(function(el){
-      el.addEventListener('click',function(){
-        if(typeof fbq!=='function')return;
+    (function(){
+      var els = document.querySelectorAll('a.js-track');
+      // ViewContent: cliente está vendo os produtos desta marca.
+      if(typeof fbq==='function'){
+        var ids=[], seen={};
+        els.forEach(function(el){
+          var id=el.dataset.fbId||'';
+          if(id&&!seen[id]){seen[id]=1;ids.push(id);}
+        });
         fbq('track','ViewContent',{
-          content_name: el.dataset.fbName||'',
-          content_category: el.dataset.fbCat||'',
-          content_ids: el.dataset.fbId?[el.dataset.fbId]:[],
-          content_type:'product',
-          value: parseFloat(el.dataset.fbPrice||'0')||0,
-          currency:'BRL'
+          content_name: 'M·A·C Cosmetics',
+          content_category: 'M·A·C Cosmetics',
+          content_ids: ids,
+          content_type:'product'
+        });
+      }
+      // InitiateCheckout: clique que leva o cliente ao marketplace (intenção de compra).
+      els.forEach(function(el){
+        el.addEventListener('click',function(){
+          if(typeof fbq!=='function')return;
+          fbq('track','InitiateCheckout',{
+            content_name: el.dataset.fbName||'',
+            content_category: el.dataset.fbCat||'',
+            content_ids: el.dataset.fbId?[el.dataset.fbId]:[],
+            content_type:'product',
+            value: parseFloat(el.dataset.fbPrice||'0')||0,
+            currency:'BRL'
+          });
         });
       });
-    });
+    })();
   </script>
 </body>
 </html>

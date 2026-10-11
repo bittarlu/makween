@@ -144,6 +144,7 @@
           <div class="from">a partir de · menor preço em Shopee</div>
           <div class="offers">
           <a class="offer js-track" href="https://s.shopee.com.br/8V9bZfhquu" target="_blank" rel="noopener noreferrer sponsored" data-fb-name="3D Hydra Gloss Kiko Milano" data-fb-cat="" data-fb-id="23998685041" data-fb-price="24.00" data-fb-mp="shopee"><span class="mp">Shopee</span><span class="op">R$ 24,00<span class="arrow">→</span></span></a>
+          <a class="offer js-track" href="https://meli.la/2hWgucN" target="_blank" rel="noopener noreferrer sponsored" data-fb-name="Gloss Kiko Milano 3D Hydra Branco Hidratante Longa Duração" data-fb-cat="" data-fb-id="MLB29495143" data-fb-price="31.05" data-fb-mp="mercadolivre"><span class="mp">Mercado Livre</span><span class="op">R$ 31,05<span class="arrow">→</span></span></a>
           </div>
         </div>
       </article>
@@ -165,21 +166,39 @@
     <p class="disclaimer">A MAKWEEN participa de programas de afiliados e pode receber uma comissão pelas compras feitas através dos nossos links, sem custo adicional para você. Preços e disponibilidade são atualizados diariamente e podem mudar sem aviso.</p>
   </footer>
 
-  <!-- Pixel: clique em oferta de produto (interesse real) -->
+  <!-- Pixel: ViewContent ao ver a aba da marca; InitiateCheckout no clique da oferta -->
   <script>
-    document.querySelectorAll('a.js-track').forEach(function(el){
-      el.addEventListener('click',function(){
-        if(typeof fbq!=='function')return;
+    (function(){
+      var els = document.querySelectorAll('a.js-track');
+      // ViewContent: cliente está vendo os produtos desta marca.
+      if(typeof fbq==='function'){
+        var ids=[], seen={};
+        els.forEach(function(el){
+          var id=el.dataset.fbId||'';
+          if(id&&!seen[id]){seen[id]=1;ids.push(id);}
+        });
         fbq('track','ViewContent',{
-          content_name: el.dataset.fbName||'',
-          content_category: el.dataset.fbCat||'',
-          content_ids: el.dataset.fbId?[el.dataset.fbId]:[],
-          content_type:'product',
-          value: parseFloat(el.dataset.fbPrice||'0')||0,
-          currency:'BRL'
+          content_name: 'KIKO Milano',
+          content_category: 'KIKO Milano',
+          content_ids: ids,
+          content_type:'product'
+        });
+      }
+      // InitiateCheckout: clique que leva o cliente ao marketplace (intenção de compra).
+      els.forEach(function(el){
+        el.addEventListener('click',function(){
+          if(typeof fbq!=='function')return;
+          fbq('track','InitiateCheckout',{
+            content_name: el.dataset.fbName||'',
+            content_category: el.dataset.fbCat||'',
+            content_ids: el.dataset.fbId?[el.dataset.fbId]:[],
+            content_type:'product',
+            value: parseFloat(el.dataset.fbPrice||'0')||0,
+            currency:'BRL'
+          });
         });
       });
-    });
+    })();
   </script>
 </body>
 </html>
