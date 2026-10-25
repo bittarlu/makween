@@ -89,10 +89,10 @@
     .offer{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#FBF1EE;border:1px solid rgba(193,18,31,.14);border-radius:10px;padding:8px 11px;font-weight:700;color:var(--red-deep);transition:background .15s,transform .12s;position:relative}
     .offer:hover{background:#fff;border-color:var(--red);transform:translateY(-1px)}
     .offer:active{transform:scale(.98)}
-    .offer.best{background:#EAF7F0;border-color:#1EA866}
-    .offer.best .op .arrow{color:#1EA866}
+    .offer.best{background:#12A866;border-color:#0E8A54;color:#fff;box-shadow:0 4px 14px rgba(18,168,102,.35)}
+    .offer.best:hover{background:#0E9458;border-color:#0E8A54;transform:translateY(-1px)}
+    .offer.best .op .arrow{color:#fff}
     .offer .mp{font-size:11px;letter-spacing:.2px;display:flex;align-items:center;gap:6px}
-    .offer .best-tag{background:#1EA866;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:12px;letter-spacing:.3px;text-transform:uppercase}
     .offer .op{display:flex;align-items:center;gap:5px;font-size:10px}
     .offer .op .arrow{color:var(--red)}
 
@@ -114,7 +114,7 @@
     .empty strong{display:block;font-family:'Cinzel',serif;color:var(--red-deep);font-size:20px;margin-bottom:8px}
 
     /* WA band */
-    .wa-band{background:#fff;border-top:1px solid rgba(193,18,31,.12);text-align:center;padding:48px 22px}
+    .wa-band{background:#fff;border-bottom:1px solid rgba(193,18,31,.12);text-align:center;padding:30px 22px}
     .wa-band h2{font-family:'Cinzel',serif;color:var(--red-deep);font-size:24px;margin-bottom:10px}
     .wa-band p{color:var(--mid);font-weight:300;margin-bottom:22px}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;border-radius:14px;padding:15px 28px;font-size:16px;transition:transform .15s,box-shadow .2s,background .2s}
@@ -153,6 +153,12 @@
     <p>Suplementos, acessórios de treino e vestuário fitness para turbinar os resultados sem pesar no bolso. Garimpamos as melhores ofertas entre Shopee, Mercado Livre, Amazon e Magalu todos os dias.</p>
   </section>
 
+  <section class="wa-band">
+    <h2>Não quer perder nenhuma oferta?</h2>
+    <p>Receba os melhores preços de Achadinhos Suplementos &amp; Fitness todos os dias no grupo VIP do nicho.</p>
+    <span class="btn btn-soon">Grupo VIP em breve</span>
+  </section>
+
   <div class="filters" id="filters">
 <span class="chip active" data-sub="all">Todas</span>
           <span class="chip" data-sub="Suplementos">Suplementos</span>
@@ -162,15 +168,40 @@
 
   <main class="wrap">
     <div class="grid" id="grid">
-<div class="empty"><strong>Ofertas a caminho</strong>Os produtos desta categoria estão sendo atualizados. Entre no grupo VIP para receber as novidades em primeira mão.</div>
+      <article class="card" data-cat="suplementos-fitness" data-sub="Suplementos">
+        <div class="thumb">
+          <span class="badge">-11%</span>
+          <span class="subtag" style="background:#E8590C">Suplementos</span>
+          <img src="https://http2.mlstatic.com/D_Q_NP_2X_729089-MLA99448469320_112025-E.webp" alt="Barra Integralmédica Ovomaltine 12 Unidades" loading="lazy">
+        </div>
+        <div class="info">
+          <h3>Barra Integralmédica Ovomaltine 12 Unidades</h3>
+          <div class="price-row"><span class="price">R$ 82,00</span><span class="price-old">R$ 92,00</span></div>
+          <div class="from">menor preço em Mercado Livre</div>
+          <div class="offers">
+          <a class="offer js-track best" href="https://meli.la/1bB6rXB" target="_blank" rel="noopener noreferrer sponsored" onclick="fbq(&#x27;track&#x27;,&#x27;InitiateCheckout&#x27;,{content_name:&#x27;Barra de Proteína Integralmédica Crisp Bar sabor Ovomaltine x 45g de 12 un&#x27;,content_category:&#x27;&#x27;,content_ids:[&#x27;MLB48937886&#x27;],content_type:&#x27;product&#x27;,value:82.00,currency:&#x27;BRL&#x27;})" data-fb-name="Barra de Proteína Integralmédica Crisp Bar sabor Ovomaltine x 45g de 12 un" data-fb-cat="" data-fb-id="MLB48937886" data-fb-price="82.00" data-fb-mp="mercadolivre"><span class="mp">Mercado Livre</span><span class="op">R$ 82,00<span class="arrow">→</span></span></a>
+          <a class="offer js-track" href="https://s.shopee.com.br/2BFvZSlhcO" target="_blank" rel="noopener noreferrer sponsored" onclick="fbq(&#x27;track&#x27;,&#x27;InitiateCheckout&#x27;,{content_name:&#x27;Protein Crisp Bar Ovomaltine Display 12 und - IntegralMédica&#x27;,content_category:&#x27;&#x27;,content_ids:[&#x27;40154316938&#x27;],content_type:&#x27;product&#x27;,value:109.90,currency:&#x27;BRL&#x27;})" data-fb-name="Protein Crisp Bar Ovomaltine Display 12 und - IntegralMédica" data-fb-cat="" data-fb-id="40154316938" data-fb-price="109.90" data-fb-mp="shopee"><span class="mp">Shopee</span><span class="op">R$ 109,90<span class="arrow">→</span></span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="suplementos-fitness" data-sub="Suplementos">
+        <div class="thumb">
+          <span class="badge">-38%</span>
+          <span class="subtag" style="background:#E8590C">Suplementos</span>
+          <img src="https://http2.mlstatic.com/D_Q_NP_2X_662415-MLA97812910758_112025-E.webp" alt="Creatina Growth - 250g" loading="lazy">
+        </div>
+        <div class="info">
+          <h3>Creatina Growth - 250g</h3>
+          <div class="price-row"><span class="price">R$ 39,90</span><span class="price-old">R$ 64,00</span></div>
+          <div class="from">menor preço em Mercado Livre</div>
+          <div class="offers">
+          <a class="offer js-track best" href="https://meli.la/1gtFLCh" target="_blank" rel="noopener noreferrer sponsored" onclick="fbq(&#x27;track&#x27;,&#x27;InitiateCheckout&#x27;,{content_name:&#x27;Creatina Growth Supplements Monohidratada em pó Sem sabor x 250g&#x27;,content_category:&#x27;creatina&#x27;,content_ids:[&#x27;MLB19603205&#x27;],content_type:&#x27;product&#x27;,value:39.90,currency:&#x27;BRL&#x27;})" data-fb-name="Creatina Growth Supplements Monohidratada em pó Sem sabor x 250g" data-fb-cat="creatina" data-fb-id="MLB19603205" data-fb-price="39.90" data-fb-mp="mercadolivre"><span class="mp">Mercado Livre</span><span class="op">R$ 39,90<span class="arrow">→</span></span></a>
+          <a class="offer js-track" href="https://www.magazinevoce.com.br/makween/creatina-monohidratada-250g-growth-supplements/p/ddd42jdbj4/sa/sacr/" target="_blank" rel="noopener noreferrer sponsored" onclick="fbq(&#x27;track&#x27;,&#x27;InitiateCheckout&#x27;,{content_name:&#x27;Creatina Monohidratada 250g Growth Supplements&#x27;,content_category:&#x27;creatina&#x27;,content_ids:[&#x27;ddd42jdbj4&#x27;],content_type:&#x27;product&#x27;,value:82.77,currency:&#x27;BRL&#x27;})" data-fb-name="Creatina Monohidratada 250g Growth Supplements" data-fb-cat="creatina" data-fb-id="ddd42jdbj4" data-fb-price="82.77" data-fb-mp="magalu"><span class="mp">Magalu</span><span class="op">R$ 82,77<span class="arrow">→</span></span></a>
+          </div>
+        </div>
+      </article>
     </div>
   </main>
-
-  <section class="wa-band">
-    <h2>Não quer perder nenhuma oferta?</h2>
-    <p>Receba os melhores preços de Achadinhos Suplementos &amp; Fitness todos os dias no grupo VIP do nicho.</p>
-    <span class="btn btn-soon">Grupo VIP em breve</span>
-  </section>
 
   <footer class="footer">
     <div class="logo">MAKWEEN</div>
